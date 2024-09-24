@@ -23,6 +23,8 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
@@ -30,3 +32,4 @@ services:
 volumes:
   cassandra-data:
   postgres-data:
+  es-data:

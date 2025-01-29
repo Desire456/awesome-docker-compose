@@ -28,6 +28,17 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+  centrifugo:
+    image: centrifugo/centrifugo:v6
+    volumes:
+      - ./centrifugo:/centrifugo
+    command: centrifugo -c config.json
+    ports:
+      - 8000:8000
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
 
 volumes:
   cassandra-data:
